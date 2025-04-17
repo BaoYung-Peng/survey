@@ -1,0 +1,45 @@
+<!-- 新增 && 編輯問題 -->
+
+<h2 mat-dialog-title>新增問題({{getQuestStatsName(questStats)}})</h2>
+<mat-dialog-content>
+    <div>
+        @if (isEdit) {
+        <span style="color: red;">編輯中！</span><br><br>
+        }
+        <!-- 問題名稱輸入框 -->
+        <label>問題名稱：</label>
+        <input type="text" class="textInputCss" [(ngModel)]="questName">
+        <!-- 問題類型下拉選單 -->
+        <select [(ngModel)]="questStats" class="selectCss" (change)="changeSelect()">
+            <option value="Q">單選</option>
+            <option value="M">多選</option>
+            <option value="T">文字</option>
+        </select>
+        <span style="margin-left: 5%;"></span>
+        <label>是否必填</label>
+        <input type="checkbox" [(ngModel)]="needCheckBox">
+    </div><br>
+
+    @if (questStats != 'T') {
+    <div class="questDivCss">
+        <button class="addBntCss" (click)="addQuest()">＋</button>
+        <div class="olCss">
+            <ol>
+                @for (quest of questArray;track $index) {
+                <li>
+                    <input class="questCss" [(ngModel)]="quest.quest">
+                    <!-- 如果選項的索引大於 1（$index > 1），顯示一個刪除按鈕（一），點擊後觸發 rmQuest($index) 方法，刪除該選項。 -->
+                    @if ($index > 1) {
+                    <button class="rmBntCss" (click)="rmQuest($index)">一</button>
+                    }
+                </li><br>
+                }
+            </ol>
+        </div>
+    </div><br>
+    }
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="cancel()">取消</button>
+    <button mat-button (click)="save()">確定</button>
+</mat-dialog-actions>

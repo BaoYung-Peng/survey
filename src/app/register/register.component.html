@@ -1,0 +1,36 @@
+<div class="page-container">
+<form class = "form-container" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+   <!-- 顯示預覽頭像 -->
+   <img *ngIf="avatarPreview" [src]="avatarPreview" alt="頭像預覽"><br>
+
+    <!-- 頭像上傳 -->
+    <label for="avatar"></label>
+    <input type="file" id="avatar" (change)="onFileSelected($event)" accept="image/*"><br>
+
+  <input [(ngModel)]="username" name="username" type="text" placeholder="請輸入帳號" required><br>
+  <input [(ngModel)]="password" name="password" type="password" placeholder="請輸入密碼" required><br>
+  <select [(ngModel)]="sex" name="sex" required>
+    <option value="" disabled selected>請選擇性別</option>
+    <option value="male">男</option>
+    <option value="female">女</option>
+  </select><br>
+  <input [(ngModel)]="age" name="age" type="number" placeholder="請輸入年齡" required><br>
+  <select [(ngModel)]="education" name="education" required>
+    <option value="" disabled selected>請選擇教育程度</option>
+    <option value="high-school">高中</option>
+    <option value="bachelor">學士</option>
+    <option value="master">碩士</option>
+    <option value="phd">博士</option>
+  </select><br>
+  <input [(ngModel)]="email" name="email" type="email" placeholder="請輸入信箱" required><br>
+
+
+
+  <div class="button-container">
+  <button class = "fontcolor" mat-stroked-button style="width: 80%;" (click)="submit()">註冊</button>
+  <button class = "fontcolor" mat-stroked-button style="width: 80%;" (click)="goback()">返回</button>
+  </div>
+
+</form>
+</div>

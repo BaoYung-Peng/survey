@@ -1,0 +1,105 @@
+/* 全局按鈕基礎樣式 */
+button, .mat-button {
+  background: transparent;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+}
+
+button:hover, .mat-button:hover {
+  background: rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 15px #00e5ff;
+  transform: translateY(-2px);
+}
+
+/* 特殊按鈕樣式 */
+.addBntCss {
+  background: rgba(0, 229, 255, 0.2) !important;
+  border-color: #00e5ff;
+  color: #00e5ff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0 0.8rem;
+  float: right;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.addBntCss:hover {
+  background: rgba(0, 229, 255, 0.4) !important;
+  box-shadow: 0 0 20px #00e5ff;
+}
+
+.rmBntCss {
+  background: rgba(255, 82, 82, 0.2) !important;
+  border-color: #ff5252;
+  color: #ff5252;
+  padding: 0 0.5rem;
+  margin-left: 10px;
+}
+
+.rmBntCss:hover {
+  background: rgba(255, 82, 82, 0.4) !important;
+  box-shadow: 0 0 10px #ff5252;
+}
+
+/* 對話框按鈕組 */
+.mat-dialog-actions button {
+  margin: 0 10px;
+  min-width: 80px;
+}
+
+.mat-dialog-actions button:last-child {
+  background: rgba(0, 229, 255, 0.2);
+  border: 1px solid #00e5ff;
+}
+
+.mat-dialog-actions button:last-child:hover {
+  background: rgba(0, 229, 255, 0.4);
+}
+
+/* 輸入框與下拉選單科技感樣式 */
+.textInputCss, .selectCss {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.textInputCss:focus, .selectCss:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+/* 問題選項容器 */
+.questDivCss {
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  background: rgba(15, 23, 42, 0.5);
+  padding: 2%;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.1);
+}
+
+.olCss {
+  overflow: auto;
+  height: 25vh;
+  padding-right: 10px;
+}
+
+/* 滾動條樣式 */
+.olCss::-webkit-scrollbar {
+  width: 5px;
+}
+
+.olCss::-webkit-scrollbar-thumb {
+  background: #00e5ff;
+  border-radius: 10px;
+}

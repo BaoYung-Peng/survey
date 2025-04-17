@@ -1,0 +1,93 @@
+/* 整體背景與文字樣式 */
+body, .questionnaire-container {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+}
+
+/* 標題樣式 */
+h2, h3, h5, p, label {
+  color: #ffffff;
+}
+
+/* 區塊標題 */
+.section {
+  color: #aaaaaa;
+  margin-top: 1rem;
+}
+
+/* 表單區塊 */
+.user-info-section,
+.questions-section {
+  margin-top: 2rem;
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.05);
+}
+
+/* 表單欄位 */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #00bcd4;
+  border-radius: 8px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #00bcd4;
+  margin-right: 0.5rem;
+}
+
+/* 問題樣式 */
+.question {
+  margin-bottom: 1.5rem;
+}
+.options {
+  margin-left: 1rem;
+}
+.option {
+  margin-bottom: 0.5rem;
+}
+
+/* 必填提示 */
+.required {
+  color: #ff5252;
+}
+.required-hint {
+  color: #ff5252;
+  font-size: 0.85rem;
+}
+
+/* 按鈕樣式 */
+button {
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 0.5rem 0 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.cancel-btn {
+  background-color: #424242;
+  color: #ffffff;
+}
+.cancel-btn:hover {
+  background-color: #616161;
+}
+.submit-btn {
+  background-color: #00bcd4;
+  color: #000000;
+}
+.submit-btn:hover {
+  background-color: #26c6da;
+}

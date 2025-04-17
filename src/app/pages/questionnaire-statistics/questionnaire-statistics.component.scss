@@ -1,0 +1,82 @@
+/* 全局樣式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 標題 */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 導航欄 */
+nav {
+  margin-bottom: 20px;
+}
+
+/* 按鈕區域 */
+.button-group {
+  display: flex;
+  gap: 10px; /* 按鈕之間的間距 */
+  margin-bottom: 20px;
+}
+
+.example-action-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.example-action-button:hover {
+  background-color: #0056b3;
+}
+
+/* 表單區域 */
+.form-container {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* 圖表區域 */
+.chart-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 響應式佈局 */
+  gap: 20px; /* 圖表之間的間距 */
+  margin-bottom: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* 返回按鈕 */
+.back-button {
+  text-align: center;
+}
+
+.back-button button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.back-button button:hover {
+  background-color: #5a6268;
+}

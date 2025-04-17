@@ -1,0 +1,63 @@
+@if (feedbackData) {
+  <div class="container">
+    <h2>{{ quizName }}</h2>
+    <p>{{ description }}</p>
+
+    @if (errorMessage) {
+      <div class="error-message">{{ errorMessage }}</div>
+    }
+
+    @if (questionStats.length > 0) {
+      <div class="stats-container">
+        <h3>問題答案統計</h3>
+
+        @for (question of questionStats; track question.quesId; let i = $index) {
+          <div class="question-card">
+            <h4>{{ question.quesName }}</h4>
+
+            @if (question.answers.length > 0) {
+              <div class="chart-container">
+                <div class="chart-wrapper">
+                  <canvas id="chart-{{i}}"></canvas>
+                </div>
+                <div class="answers-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>答案</th>
+                        <th>次數</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (item of question.answers; track item.answer) {
+                        <tr>
+                          <td>{{ item.answer }}</td>
+                          <td>{{ item.count }}</td>
+                        </tr>
+                      }
+                      <tr class="total-row">
+                        <td><strong>總計</strong></td>
+                        <td><strong>{{ getTotalCount(question.answers) }}</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            } @else {
+              <p class="no-answers">此問題暫無答案數據</p>
+            }
+          </div>
+        }
+      </div>
+    } @else if (!errorMessage) {
+      <p>正在處理數據...</p>
+    }
+  </div>
+} @else {
+  <div class="loading">
+    <p>正在載入數據...</p>
+    @if (errorMessage) {
+      <p class="error-message">{{ errorMessage }}</p>
+    }
+  </div>
+}

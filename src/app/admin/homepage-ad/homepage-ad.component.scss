@@ -1,0 +1,259 @@
+.search-section {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: #e0e0e0;
+}
+
+.search-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.search-input-group input[type="text"] {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input-group input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+button {
+  background: transparent;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  background: #00e5ff;
+  color: #000;
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+}
+
+button mat-icon {
+  margin-right: 5px;
+}
+
+.logout-button {
+  margin-left: auto;
+  background: rgba(255, 82, 82, 0.1);
+  border-color: #ff5252;
+  color: #ff5252;
+}
+
+.logout-button:hover {
+  background: #ff5252;
+  color: #000;
+  box-shadow: 0 0 10px #ff5252, 0 0 20px #ff5252;
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+  display: flex;
+}
+
+.date-controls {
+  display: flex;
+  align-items: center;
+}
+
+.date-control {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.date-control label {
+  margin-right: 0.5rem;
+  color: #00e5ff;
+}
+
+.date-control input[type="date"] {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: #ff5252;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ff5252;
+  border-radius: 5px;
+  background: rgba(255, 82, 82, 0.1);
+}
+
+.loading {
+  color: #00e5ff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.no-data {
+  color: #ffd740;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border: 1px solid rgba(5, 8, 51, 0.481);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+th {
+  background: rgba(0, 0, 0, 0.474);
+  color: #00e5ff;
+  font-weight: 500;
+}
+
+tr:hover {
+  background: rgba(8, 72, 72, 0.3);
+}
+
+input[type="checkbox"] {
+  accent-color: #00e5ff;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* 狀態文字樣式 */
+.status-進行中 {
+  color: #00e676;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 230, 118, 0.5);
+}
+
+.status-已結束 {
+  color: #ff5252;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 82, 82, 0.5);
+}
+
+.status-未開始 {
+  color: #ffd740;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 215, 64, 0.5);
+}
+
+.status-尚未開始 {
+  color: black;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(29, 25, 25, 0.5);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .search-row, .action-row {
+    flex-direction: column;
+  }
+
+  .search-input-group {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .action-buttons, .date-controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .logout-button {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.5rem;
+  }
+}
+
+/* 操作按鈕容器樣式 */
+.action-buttons-cell {
+  width: 150px; /* 設定固定寬度以容納兩個按鈕 */
+}
+.action-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* 按鈕之間的間距 */
+}
+
+.action-buttons-container button {
+  margin: 0; /* 移除預設的 margin-left */
+  flex: 1; /* 讓兩個按鈕平分可用空間 */
+  text-align: center;
+  padding: 0.3rem 0.5rem; /* 調整按鈕內邊距 */
+  font-size: 0.8rem; /* 調整字體大小 */
+}
+
+/* 響應式設計調整 */
+@media (max-width: 768px) {
+  .action-buttons-cell {
+    width: auto;
+  }
+
+  .action-buttons-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .action-buttons-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 229, 255, 0.5);
+  }
+
+}
+

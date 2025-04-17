@@ -1,0 +1,48 @@
+<div class="divCss">
+  <h3>選擇類型問題</h3>
+  <button style="margin-right: 5px;" mat-stroked-button (click)="openDialog('Q')">單選</button>
+  <button style="margin-right: 5px;" mat-stroked-button (click)="openDialog('M')">多選</button>
+  <button style="margin-right: 5px;" mat-stroked-button (click)="openDialog('T')">文字</button>
+  <br><br>
+
+  <div style="border-bottom: 1px solid;"></div>
+  <br>
+  <mat-icon class="delIconCss" fontIcon="delete" (click)="del()"></mat-icon>
+  <table>
+      <thead>
+          <tr>
+              <th scope="col"></th>
+              <th scope="col">內容</th>
+              <th scope="col">種類</th>
+              <th scope="col">必填</th>
+              <th scope="col">編輯</th>
+          </tr>
+      </thead>
+      <tbody>
+          @for (quset of saveQuestArray; track $index) {
+          <tr>
+              <td>
+                  <input type="checkbox" [(ngModel)]="quset.checkBox">
+              </td>
+              <td>{{quset.questName}}</td>
+              <td>{{quset.questStatsName}}</td>
+              <td>
+                  <input type="checkbox" [disabled]="true" [(ngModel)]="quset.need">
+              </td>
+              <td class="urlCss" (click)="edit(quset)">編輯</td>
+          </tr>
+          }
+      </tbody>
+  </table>
+  <br>
+
+  <!-- 修改這部分，將兩個按鈕放在同一個右浮動容器中 -->
+  <div class="button-group-right">
+    <button mat-stroked-button class="nav-button" (click)="goback()">上一步</button>
+    @if (saveQuestArray.length > 0) {
+      <button mat-stroked-button class="nav-button" (click)="goPreview()">測試</button>
+    }
+  </div>
+
+  <br><br><br>
+</div>

@@ -1,0 +1,69 @@
+<!-- <p>mat-table works!</p> -->
+<div class="table-container">
+  <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="tableCss">
+
+    <!-- 判斷是管理者才顯示 -->
+    <!-- 參考網址https://stackblitz.com/edit/angular-mat-table-checkbox-select-all-ivt1dw?file=app%2Ftable-selection-example.ts -->
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="($event ? selection.toggle(row) : null) && outputData()"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> 編號 </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> 名稱 </th>
+      <td mat-cell *matCellDef="let element" (click)="goQuestionnaire(element)"
+        [ngClass]="{'urlCss': element.statusCode == 'S' || isAdmin}">
+        {{element.name}}
+      </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> 狀態 </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- SDate Column -->
+    <ng-container matColumnDef="sDate">
+      <th mat-header-cell *matHeaderCellDef> 開始時間 </th>
+      <td mat-cell *matCellDef="let element"> {{element.sDate}} </td>
+    </ng-container>
+
+    <!-- EDate Column -->
+    <ng-container matColumnDef="eDate">
+      <th mat-header-cell *matHeaderCellDef> 結束時間 </th>
+      <td mat-cell *matCellDef="let element"> {{element.eDate}} </td>
+    </ng-container>
+
+    <!-- EductId Column -->
+    <ng-container matColumnDef="eductId">
+      <th mat-header-cell *matHeaderCellDef> 結果 </th>
+      <td mat-cell *matCellDef="let element" (click)="gostatistics(element)"
+        [ngClass]="{'urlCss': element.statusCode == 'E'}"> 前往 </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+  </mat-paginator>
+</div>
+</div>

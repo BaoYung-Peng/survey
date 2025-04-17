@@ -1,0 +1,158 @@
+.divCss {
+  background-color: #0f1621; /* 深藍黑背景 */
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #2a3a57; /* 科技藍邊框 */
+  box-shadow: 0 0 25px rgba(42, 58, 87, 0.6); /* 外發光 */
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 科技感斜角裝飾 (可選) */
+.divCss::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #4fc3f7;
+  border-right: 2px solid #4fc3f7;
+}
+
+.divCss::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid #4fc3f7;
+  border-left: 2px solid #4fc3f7;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #a0c4e6; /* 淺藍文字 */
+  text-shadow: 0 0 8px rgba(241, 251, 255, 0.3);
+}
+
+.textInputCss, .dateInputCss {
+  background-color: rgba(25, 39, 62, 0.5);
+  border: 1px solid #3a4e6f;
+  border-radius: 6px;
+  padding: 12px 15px;
+  width: calc(100% - 140px);
+  color: white !important; /* 使用 !important 確保顏色優先應用 */
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.textInputCss:focus, .dateInputCss:focus {
+  outline: none;
+  border-color: #4fc3f7;
+  box-shadow: 0 0 15px rgba(79, 195, 247, 0.4),
+              inset 0 0 10px rgba(79, 195, 247, 0.2);
+  background-color: rgba(35, 55, 90, 0.7);
+  color: white !important; /* 確保聚焦時文字顏色保持為白色 */
+}
+
+/* 修正後的日期輸入框樣式 */
+.dateInputCss {
+  background-color: rgba(25, 39, 62, 0.5);
+  border: 1px solid #3a4e6f;
+  border-radius: 6px;
+  padding: 12px 15px; /* 統一 padding */
+  width: calc(100% - 140px);
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  appearance: none; /* 移除原生樣式 */
+  -webkit-appearance: none;
+  position: relative;
+}
+
+/* 使用偽元素添加自定義日曆圖標 */
+.dateInputCss::-webkit-calendar-picker-indicator {
+  color: rgba(0,0,0,0);
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+.dateInputCss:after {
+  content: "📅";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0c4e6;
+  pointer-events: none;
+}
+
+/* 按鈕樣式 */
+button.mat-stroked-button {
+  background: transparent;
+  border: 1px solid #4fc3f7 !important;
+  color: #4fc3f7 !important;
+  padding: 8px 25px;
+  border-radius: 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  margin-left: 15px !important;
+}
+
+button.mat-stroked-button:hover {
+  background: rgba(79, 195, 247, 0.1) !important;
+  box-shadow: 0 0 15px rgba(79, 195, 247, 0.4);
+  transform: translateY(-2px);
+}
+
+button.mat-stroked-button:disabled {
+  opacity: 0.5;
+  border-color: #666 !important;
+  color: #999 !important;
+  box-shadow: none;
+  transform: none;
+}
+
+/* 下一步按鈕的特殊樣式 */
+button.mat-stroked-button:not(:disabled) {
+  position: relative;
+  overflow: hidden;
+}
+
+button.mat-stroked-button:not(:disabled)::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+button.mat-stroked-button:not(:disabled):hover::after {
+  left: 100%;
+}

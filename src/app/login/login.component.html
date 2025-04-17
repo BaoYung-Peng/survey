@@ -1,0 +1,24 @@
+  <div class="divCss">
+  <mat-card appearance="outlined" class="cardCss">
+      <mat-card-content>
+          <h3 class = "h3">登入</h3>
+          <div style="margin: 5px;">
+              <div class="user-box">
+                  <input type="text" [(ngModel)]="account" />
+                  <label class = "fontcolor">帳號</label>
+              </div>
+
+              <div class="user-box">
+                  <input type="{{showPassword? 'text' : 'password'}}"  [(ngModel)]="password" />
+                  <label class = "fontcolor">密碼</label>
+                  <span class="password-toggle-icon">
+                      <mat-icon fontIcon="{{showPassword? 'visibility' : 'visibility_off'}}"
+                          (click)="changePasswordIcon()"></mat-icon>
+                  </span>
+              </div>
+              <button class = "fontcolor" mat-stroked-button style="width: 80%;" (click)="login()">登入</button>
+              <button class = "fontcolor" mat-stroked-button style="width: 80%;" (click)="loginout()">登出</button>
+          </div>
+      </mat-card-content>
+  </mat-card>
+</div>

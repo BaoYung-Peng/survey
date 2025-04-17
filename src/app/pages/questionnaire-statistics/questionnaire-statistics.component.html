@@ -1,0 +1,52 @@
+<div class="container">
+  <!-- 標題 -->
+  <h1>客戶忠誠度調查</h1>
+
+  <!-- 導航欄 -->
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    @for (link of links; track link) {
+      <a mat-tab-link
+        (click)="activeLink = link"
+        [active]="activeLink == link"> {{link}} </a>
+    }
+    <a mat-tab-link disabled>Disabled Link</a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+  <!-- 按鈕區域 -->
+  <div class="button-group">
+    <button mat-raised-button class="example-action-button" (click)="addLink()">
+      Add link
+    </button>
+    <button mat-raised-button class="example-action-button" (click)="remove()">
+      Remove
+    </button>
+  </div>
+
+  <!-- 表單區域 -->
+  <div class="form-container">
+    <mat-form-field>
+      <mat-label>請選擇</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="option1">王品</mat-option>
+        <mat-option value="option2">鼎泰豐</mat-option>
+        <mat-option value="option3">海底撈</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>You selected: {{selected}}</p>
+  </div>
+
+  <!-- 圖表區域 -->
+  <div class="chart-container">
+    <canvas id="chart"></canvas>
+    @for (chart of chartArray; track $index){
+      <canvas id="{{chart.id}}"></canvas>
+    }
+  </div>
+
+  <!-- 返回按鈕 -->
+  <div class="back-button">
+    <button mat-raised-button (click)="back()">返回</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="divCss">
+  <label>問卷名稱：</label>
+  <input type="text" class="textInputCss" [(ngModel)]="questName"><br><br>
+  <label>問卷說明：</label>
+  <input type="text" class="textInputCss" [(ngModel)]="questExplain"><br><br>
+  <label>開始時間：</label>
+  <input type="date" class="dateInputCss" [(ngModel)]="sDate" [min]="minDate"
+  [max]="maxDate"><br><br>
+  <label>結束時間：</label>
+  <input type="date" class="dateInputCss" [disabled]="!sDate"
+  [(ngModel)]="eDate" [min]="sDate" [max]="eMaxDate"><br><br>
+  <div style="float:right ">
+   <button mat-stroked-button style="margin-left: 5px;" (click)="cancel()">取消</button>
+   <button mat-stroked-button style="margin-left: 5px;" (click)="goNextTab()"
+   [disabled]="!questName || !questExplain || !sDate || !eDate">下一步</button>
+  </div><br><br>
+</div>

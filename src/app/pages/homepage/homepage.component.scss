@@ -1,0 +1,200 @@
+//頁面整體與背景設定
+/* 最外層背景區塊（全頁） */
+.bodycolor {
+  min-height: 100vh; /* 最小高度為視窗高度 */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* 漸層背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 設定字型 */
+}
+
+/* 半透明背景容器 */
+.backcolor {
+  background: rgba(255, 255, 255, 0.05); /* 白色透明背景 */
+  backdrop-filter: blur(15px); /* 背景模糊效果 */
+  border-radius: 20px; /* 圓角邊框 */
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+  width: 100%;
+  max-width: 1200px; /* 最大寬度限制 */
+}
+
+//============================================================
+//問卷區塊與標題、登入按鈕樣式
+
+/* 問卷容器主要文字顏色 */
+.divCss {
+  color: #fff; /* 文字為白色 */
+}
+
+/* 問卷標題與登入按鈕容器 */
+.inputName {
+  display: flex;
+  justify-content: space-between; /* 標題與按鈕兩側排列 */
+  align-items: center;
+  margin-bottom: 1.5rem; /* 底部間距 */
+}
+
+/* 問卷標題樣式 */
+.labelCss {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: auto; /* 推至最左側 */
+}
+
+
+/* 會員與管理員登入按鈕樣式 */
+.memberBntCss, .adminBntCss {
+  background: transparent;
+  border: 1px solid #00e5ff; /* 邊框藍色 */
+  color: #00e5ff; /* 文字藍色 */
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease; /* 動畫過渡 */
+}
+
+/* 登入按鈕 hover 效果 */
+.memberBntCss:hover, .adminBntCss:hover {
+  background: #00e5ff;
+  color: #000; /* 背景變藍，文字變黑 */
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff; /* 發光特效 */
+}
+
+//===============================================
+// 表格區塊與樣式設定
+
+/* 表格容器（含滾動條） */
+.table-container {
+  overflow-x: auto; /* 橫向捲軸 */
+  background: rgba(255, 255, 255, 0.05); /* 透明背景 */
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+/* 表格本體樣式 */
+.table-container table {
+  width: 100%;
+  color: #fff;
+  border-collapse: collapse; /* 合併邊框 */
+}
+
+/* 表格表頭與內容欄位樣式 */
+.table-container th, .table-container td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(19, 2, 28, 0.5); /* 半透明邊框 */
+  background: rgba(4, 48, 48, 0.732); /* 深色背景 */
+  color: white;
+}
+
+/* 表格滑鼠懸停效果 */
+.table-container tr:hover {
+  background: rgba(8, 72, 72, 0.3); /* 更深的背景色 */
+}
+
+//=================================================
+//問卷狀態樣式
+
+/* 問卷狀態：進行中（綠色） */
+.status-進行中 {
+  color: #00e676;
+  font-weight: bold;
+}
+
+/* 問卷狀態：已結束（紅色） */
+.status-已結束 {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+/* 問卷狀態：尚未開始（黃色） */
+.status-尚未開始 {
+  color: #000000;
+  font-weight: bold;
+}
+
+//==================================================
+//分頁器（mat-paginator）樣式
+
+/* 分頁器整體區塊 */
+mat-paginator {
+  margin-top: 1rem;
+  color: #fff;
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* 每頁顯示筆數下拉選單樣式 */
+mat-paginator .mat-select {
+  background-color: white;
+  color: black;
+  border: 1px solid #00e5ff;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+/* 下拉選單顯示值文字顏色（選擇後） */
+mat-paginator .mat-select-value {
+  color: white !important;
+}
+
+/* 分頁按鈕樣式 */
+mat-paginator button {
+  background-color: transparent;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 分頁按鈕 hover 效果 */
+mat-paginator button:hover {
+  background-color: #00e5ff;
+  color: #fff;
+}
+
+/* 下拉選項樣式 */
+mat-paginator .mat-option {
+  color: black;
+}
+
+/* 下拉選項 hover 效果 */
+mat-paginator .mat-option:hover {
+  background-color: #00e5ff;
+  color: #fff;
+}
+
+//==========================================
+//填寫問卷按鈕樣式
+
+/* 啟用狀態的填寫按鈕 */
+.fillin {
+  background-color: #4CAF50; /* 綠色背景 */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* hover 效果：變深綠色 */
+.fillin:hover {
+  background-color: #45a049;
+}
+
+/* 禁用狀態的填寫按鈕 */
+.fillin.disabled {
+  background-color: #cccccc; /* 灰色背景 */
+  color: #666666;
+  cursor: not-allowed; /* 滑鼠變叉叉 */
+  pointer-events: none; /* 禁用點擊事件 */
+}
+
+/* hover 時仍保持灰色 */
+.fillin.disabled:hover {
+  background-color: #cccccc;
+}
+

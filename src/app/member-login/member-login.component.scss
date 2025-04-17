@@ -1,0 +1,85 @@
+.h3{
+  font-weight: bold;
+  color: #000;
+}
+
+/* 漸層背景 */
+.divCss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #EE82EE); /* 漸層背景 */
+}
+
+/* 卡片樣式 */
+.cardCss {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ADD8E6, #FFFAFA); /* 漸層背景 */
+  background-color: rgba(255, 255, 255, 0.9); /* 卡片背景色（帶透明度） */
+}
+
+.fontcolor{
+  font-weight: bold;
+}
+
+/* 輸入框樣式 */
+.user-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background: transparent;
+}
+
+.user-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -10px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+/* 密碼顯示/隱藏圖標樣式 */
+.password-toggle-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+/* 按鈕樣式 */
+button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: white;
+}

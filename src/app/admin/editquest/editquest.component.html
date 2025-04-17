@@ -1,0 +1,75 @@
+<div class="editquest-container" *ngIf="!isLoading; else loading">
+  <h2>編輯問卷</h2>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>問卷名稱</mat-label>
+    <input matInput [(ngModel)]="formData.name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>開始日期</mat-label>
+    <input matInput type="date" [(ngModel)]="formData.startDate" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>結束日期</mat-label>
+    <input matInput type="date" [(ngModel)]="formData.endDate" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>說明</mat-label>
+    <textarea matInput rows="3" [(ngModel)]="formData.description"></textarea>
+  </mat-form-field>
+
+  <div *ngFor="let question of formData.questions; let i = index" class="question-block">
+    <h3>題目 {{ i + 1 }}</h3>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>題目內容</mat-label>
+      <input matInput [(ngModel)]="question.title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>題型</mat-label>
+      <mat-select [(ngModel)]="question.type">
+        <mat-option value="Single">單選</mat-option>
+        <mat-option value="Multi">多選</mat-option>
+        <mat-option value="Text">文字</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="question.type !== 'Text'" class="option-list">
+      <div *ngFor="let option of question.options; let j = index" class="option-item">
+        <mat-form-field appearance="fill" class="option-field">
+          <mat-label>選項 {{ j + 1 }}</mat-label>
+          <input matInput [(ngModel)]="option.text" />
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeOption(i, j)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-button color="primary" (click)="addOption(i)">
+        <mat-icon>add</mat-icon> 新增選項
+      </button>
+    </div>
+  </div>
+
+   <!-- 在問題列表後添加新增問題按鈕 -->
+   <div class="add-question-container">
+    <button mat-raised-button color="primary" (click)="addQuestion()">
+      <mat-icon>add</mat-icon> 新增問題
+    </button>
+  </div>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="saveChanges()">儲存變更</button>
+    <button mat-raised-button color="warn" (click)="cancelEdit()">取消</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>資料載入中...</p>
+  </div>
+</ng-template>

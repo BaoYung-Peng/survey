@@ -1,0 +1,29 @@
+.statistics-container {
+  padding: 20px;
+
+  .question-section {
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 5px;
+
+    .chart-container {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .answer-list {
+      margin-top: 15px;
+
+      .answer-item {
+        padding: 5px 0;
+        border-bottom: 1px dashed #ddd;
+      }
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+}

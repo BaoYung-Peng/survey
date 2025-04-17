@@ -1,0 +1,117 @@
+/* 設定背景顏色為深色系 */
+.backcolor {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+/* 設定 div 內的樣式 */
+.divCss {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 標題樣式 */
+h2 {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* 問卷時間 */
+h5.section {
+  color: #b0b0b0;
+  font-size: 16px;
+}
+
+/* 問卷解釋區塊 */
+div > span {
+  color: #b0b0b0;
+  font-size: 16px;
+}
+
+/* 使用者名稱欄位 */
+div > label {
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* 設置必填紅色星號 */
+span[style="color: red;"] {
+  font-weight: bold;
+}
+
+/* 列表內部的樣式 */
+ol {
+  padding-left: 20px;
+}
+
+ol li {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+h5 {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* 根據題型顯示不同的顏色 */
+ol li span {
+  color: #b0b0b0;
+}
+
+/* 操作按鈕區塊 */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* 按鈕樣式 */
+button {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555555;
+}
+
+button:disabled {
+  background-color: #888888;
+  cursor: not-allowed;
+}
+
+mat-spinner {
+  margin-left: 10px;
+}
+
+/* 科技感邊框樣式 */
+button.mat-stroked-button {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+button.mat-stroked-button:hover {
+  background-color: #333333;
+}
+
+/* 設置按鈕內圖示顏色 */
+mat-icon {
+  color: #ffffff;
+}
+

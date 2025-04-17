@@ -1,0 +1,101 @@
+<div class="search-section">
+  <!-- 第一排 -->
+  <div class="search-row">
+    <div class="search-input-group">
+      <input type="text" [(ngModel)]="searchText" placeholder="輸入問卷名稱">
+      <button (click)="searchQuizzes()">搜尋</button>
+      <button (click)="resetSearch()">重置</button>
+    </div>
+    <button class="logout-button" (click)="logout()">
+      <mat-icon>logout</mat-icon>登出
+    </button>
+  </div>
+
+  <!-- 第二排 -->
+  <div class="action-row">
+    <div class="action-buttons">
+      <button (click)="addNewQuiz()">
+        <mat-icon>add</mat-icon>新增
+      </button>
+      <button (click)="deleteSelectedQuizzes()" [disabled]="!hasSelectedForDelete()">
+        <mat-icon>delete</mat-icon>刪除
+      </button>
+      <button (click)="updateSelectedQuiz()" [disabled]="!selectedQuizId">
+        <mat-icon>edit</mat-icon>修改
+      </button>
+    </div>
+
+    <div class="date-controls">
+      <div class="date-control">
+        <label>開始日期:</label>
+        <input type="date" [(ngModel)]="startDate">
+      </div>
+      <div class="date-control">
+        <label>結束日期:</label>
+        <input type="date" [(ngModel)]="endDate">
+      </div>
+    </div>
+  </div>
+
+  <!-- 狀態訊息 -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    載入中...
+  </div>
+
+  <!-- 問卷表格 -->
+  <table *ngIf="!isLoading && quizList.length > 0">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleAllSelection($event)"></th>
+        <th>修改</th>
+        <th>編號</th>
+        <th>問卷名稱</th>
+        <th>狀態</th>
+        <th>開始日期</th>
+        <th>結束日期</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quiz of quizList ; let i = index">
+        <!-- 複選框（用於刪除功能） -->
+        <td>
+          <input type="checkbox"
+                 [checked]="selectedQuizzes[quiz.id] || false"
+                 (change)="selectedQuizzes[quiz.id] = !selectedQuizzes[quiz.id]">
+        </td>
+
+        <!-- 單選按鈕（用於修改功能） -->
+        <td>
+          <input type="radio"
+                 name="selectedQuiz"
+                 [value]="quiz.id"
+                 (change)="selectQuizForUpdate(quiz.id)">
+        </td>
+
+        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+        <td>{{ quiz.name }}</td>
+        <td [class]="'status-' + getQuizStatus(quiz)">
+          {{ getQuizStatus(quiz) }}
+        </td>
+        <td>{{ quiz.startDate | date:'yyyy-MM-dd' }}</td>
+        <td>{{ quiz.endDate | date:'yyyy-MM-dd' }}</td>
+        <td class="action-buttons-cell">
+          <div class="action-buttons-container">
+            <button (click)="viewDetails(quiz.id)">查看</button>
+            <button (click)="viewStatistics(quiz.id)">結果</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 無數據提示 -->
+  <div *ngIf="!isLoading && quizList.length === 0" class="no-data">
+    沒有找到問卷數據
+  </div>
+</div>

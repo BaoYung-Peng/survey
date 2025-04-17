@@ -1,0 +1,110 @@
+<!-- 最外層背景區塊 -->
+<div class="bodycolor">
+  <!-- 次層背景，用來加底色或裝飾背景 -->
+  <div class="backcolor">
+    <!-- 問卷功能區塊容器 -->
+    <div class="divCss">
+
+      <!-- 問卷標題與登入按鈕區塊 -->
+      <div class="inputName">
+        <!-- 問卷名稱文字 -->
+        <label class="labelCss">問卷選單</label>
+
+        <!-- 點擊登入會員 -->
+        <button mat-stroked-button class="memberBntCss" (click)="memberLogin()">會員登入</button>
+
+        <!-- 點擊登入管理員 -->
+        <button mat-stroked-button class="adminBntCss" (click)="goLogin()">管理員登入</button>
+      </div>
+
+      <!-- 表格外層容器 -->
+      <div class="table-container">
+
+        <!-- Angular Material 表格，資料來自 dataSource -->
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- 欄位：編號（顯示第幾筆資料） -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>編號</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              <!-- 顯示總序號：頁數 * 每頁筆數 + 當前資料索引 + 1 -->
+              {{ paginator ? paginator.pageIndex * paginator.pageSize + i + 1 : i + 1 }}
+              <!--
+                說明：
+                - paginator.pageIndex：第幾頁（從0開始）
+                - paginator.pageSize：每頁幾筆
+                - i：目前這筆在本頁的位置（從0開始）
+                - +1 是為了讓顯示從 1 開始
+                - 若 paginator 尚未載入，就只顯示 i+1
+              -->
+            </td>
+          </ng-container>
+
+          <!-- 欄位：問卷名稱 -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>名稱</th>
+            <!-- 顯示問卷名稱 -->
+            <td mat-cell *matCellDef="let quiz">{{ quiz.name }}</td>
+          </ng-container>
+
+          <!-- 欄位：開始時間 -->
+          <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef>開始時間</th>
+            <!-- 顯示格式化後的開始時間 -->
+            <td mat-cell *matCellDef="let quiz">
+              {{ dateService.formatDate(quiz.startDate) }}
+            </td>
+          </ng-container>
+
+          <!-- 欄位：結束時間 -->
+          <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef>結束時間</th>
+            <!-- 顯示格式化後的結束時間 -->
+            <td mat-cell *matCellDef="let quiz">
+              {{ dateService.formatDate(quiz.endDate) }}
+            </td>
+          </ng-container>
+
+          <!-- 欄位：狀態 -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>狀態</th>
+            <!-- 顯示問卷狀態，並根據狀態套用對應的樣式類別 -->
+            <td mat-cell *matCellDef="let quiz">
+              <span [class]="'status-' + calculateStatus(quiz).toLowerCase()">
+                {{ calculateStatus(quiz) }}
+              </span>
+              <!-- 說明：calculateStatus(quiz)：回傳此問卷目前的狀態（如：進行中、已結束、未開始）-->
+            </td>
+          </ng-container>
+
+          <!-- 添加操作列定義 -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>操作</th>
+              <td mat-cell *matCellDef="let quiz">
+                <button class="fillin"
+                [class.disabled]="calculateStatus(quiz) !== '進行中'"
+                (click)="startFilling(quiz)"> <!-- 保持點擊事件簡潔 -->
+          填寫問卷
+        </button>
+
+            </td>
+</ng-container>
+
+          <!-- 表格標題列（Header） -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+          <!-- 表格資料列（Row） -->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <!-- Angular Material 的分頁控制元件 -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+        </mat-paginator>
+        <!--
+          [pageSizeOptions]：提供可選的每頁顯示筆數（5、10、20）
+          showFirstLastButtons：是否顯示「第一頁 / 最後一頁」按鈕
+        -->
+      </div> <!-- table-container 結束 -->
+    </div> <!-- divCss 結束 -->
+  </div> <!-- backcolor 結束 -->
+</div> <!-- bodycolor 結束 -->

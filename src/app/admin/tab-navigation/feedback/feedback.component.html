@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>問卷回饋列表 (問卷 ID: {{ quizId }})</h2>
+
+  <div *ngIf="isLoading" class="loading">載入中...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="filteredFeedbackList.length > 0" class="table">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>填寫者姓名</th>
+        <th>填寫時間</th>
+        <th>觀看回覆</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feedback of filteredFeedbackList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ feedback.userName }}</td>
+        <td>{{ feedback.fillinDate }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="viewDetails(i)">前往</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && filteredFeedbackList.length === 0" class="no-data">
+    此問卷尚無回饋資料
+  </div>
+</div>

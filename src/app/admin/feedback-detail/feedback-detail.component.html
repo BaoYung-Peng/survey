@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div *ngIf="isLoading" class="loading">載入中...</div>
+  <div *ngIf="error" class="error alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="selectedUser && quizInfo">
+    <h2>問卷詳細資料: {{ quizInfo.quizName }}</h2>
+    <p class="text-muted">{{ quizInfo.description }}</p>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <h4>填寫者資訊</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>姓名:</strong> {{ selectedUser.userName }}</p>
+        <p><strong>電話:</strong> {{ selectedUser.phone }}</p>
+        <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+        <p><strong>年齡:</strong> {{ selectedUser.age }}</p>
+        <p><strong>填寫日期:</strong> {{ selectedUser.fillinDate }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h4>回答內容</h4>
+      </div>
+      <div class="card-body">
+        <div *ngFor="let question of selectedUser.quesAnswerList" class="mb-3">
+          <h5>{{ question.quesName }}</h5>
+          <ul class="list-group">
+            <li *ngFor="let answer of question.answers" class="list-group-item">
+              {{ answer }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+/* 表格容器样式 */
+.table-container {
+  background-color: #0f1621; /* 深色背景 */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* 表格整体样式 */
+.tableCss {
+  width: 100%;
+  background: transparent;
+  color: white !important; /* 强制所有文字为白色 */
+}
+
+/* 表头样式 */
+.mat-header-cell {
+  color: white !important;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: rgba(42, 58, 87, 0.9) !important;
+  border-bottom: 1px solid #3a4e6f;
+}
+
+/* 单元格样式 */
+.mat-cell {
+  color: white !important;
+  border-bottom: 1px solid rgba(58, 78, 111, 0.5);
+}
+
+/* 行悬停效果 */
+.mat-row:hover {
+  background-color: rgba(79, 195, 247, 0.1) !important;
+}
+
+/* 分页器样式 */
+.mat-paginator {
+  background: transparent !important;
+  color: white !important;
+}
+
+/* 分页器按钮和文字 */
+.mat-paginator,
+.mat-paginator-page-size,
+.mat-paginator-range-label,
+.mat-select-value {
+  color: white !important;
+}
+
+/* 复选框样式 */
+.mat-checkbox-frame {
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 链接样式 */
+.urlCss {
+  color: #7fd8ff !important; /* 保持链接高亮 */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.urlCss:hover {
+  color: #4fc3f7 !important;
+  text-decoration: underline;
+}
+
+/* 表格标题样式 */
+.table-container > p {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+/* 下拉菜单样式 */
+.mat-select-panel {
+  background: #1a1a1a !important;
+}
+
+.mat-option {
+  color: white !important;
+}
+
+.mat-option:hover {
+  background: rgba(79, 195, 247, 0.2) !important;
+}

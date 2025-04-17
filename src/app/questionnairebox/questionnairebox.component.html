@@ -1,0 +1,68 @@
+<div class="questionnaire-container">
+  <h2>{{ quizData?.title }}</h2>
+  <p>{{ quizData?.description }}</p>
+  <h5 class="section">問卷時間： {{ sDate }} ~ {{ eDate }}</h5>
+  <h2 style="text-align: center;"> {{ title }}</h2>
+
+
+  <div class="user-info-section">
+    <h3>基本信息</h3>
+    <div class="form-group">
+      <label>姓名*</label>
+      <input type="text" [(ngModel)]="user_name" required>
+    </div>
+    <div class="form-group">
+      <label>電話*</label>
+      <input type="text" [(ngModel)]="phone" required>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+      <label>年齡</label>
+      <input type="number" [(ngModel)]="age">
+    </div>
+  </div>
+
+  <div class="questions-section">
+    <h3>問卷問題</h3>
+    <div *ngFor="let q of questions" class="question">
+      <p>{{ q.text }} <span *ngIf="q.required" class="required">*</span></p>
+
+      <!-- 單選題 -->
+      <div *ngIf="q.type === 'SINGLE'" class="options">
+        <div *ngFor="let opt of q.options" class="option">
+          <input type="radio"
+                 [name]="'q_' + q.Id"
+                 [value]="opt"
+                 [(ngModel)]="q.answer">  <!-- q.answer 應該是單一值 (如 '1') -->
+          <label>{{ opt }}</label>
+        </div>
+      </div>
+
+      <!-- 多選題 -->
+      <div *ngIf="q.type === 'MULTIPLE'" class="options">
+        <div *ngFor="let opt of q.options" class="option">
+          <input
+              type="checkbox"
+              [checked]="q.selectedOptions.includes(opt)"
+              (change)="toggleOption(q, opt)">
+          <label>{{ opt }}</label>
+        </div>
+      </div>
+
+      <!-- 文字輸入題 -->
+      <div *ngIf="q.type === 'TEXT'" class="text-question">
+        <input
+          type="text"
+          [(ngModel)]="q.answer"
+          [required]="q.required"
+          placeholder="請輸入答案"
+        >
+        <small *ngIf="q.required" class="required-hint">（必填）</small>
+      </div>
+    </div>
+  <button (click)="cancelQuiz()" class="cancel-btn">取消</button>
+  <button (click)="submitQuiz()" class="submit-btn">提交問卷</button>
+</div>

@@ -1,0 +1,97 @@
+/* 設置整個頁面的背景顏色 */
+body {
+  background-color: #f4f4f42a;
+  margin: 0; /* 移除預設的 body 邊距 */
+  font-family: Arial, sans-serif;
+}
+
+/* 讓表單容器置中 */
+.backcolor {
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: center;     /* 垂直置中 */
+  min-height: 100vh;      /* 最小高度為視窗高度 */
+  padding: 20px;           /* 避免內容貼邊 */
+}
+
+/* 表單容器 */
+.borderCss {
+  background-color: #30363a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 800px;           /* 表單寬度 */
+  max-width: 90%;         /* 避免在小屏幕上過寬 */
+}
+
+/* 表單內容樣式 */
+.divCss {
+  margin: 0 auto;         /* 內容置中 */
+}
+
+/* 按鈕容器 */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* 按鈕左右分布 */
+  margin-top: 20px;
+}
+
+/* 左側按鈕樣式 */
+.left-button {
+  background-color: #6c757d; /* 灰色 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.left-button:hover {
+  background-color: #5a6268; /* 深灰色 */
+}
+
+/* 右側按鈕樣式 */
+.right-button {
+  background-color: #007bff; /* 藍色 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.right-button:hover {
+  background-color: #0056b3; /* 深藍色 */
+}
+
+/* 其他樣式調整 */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: vertical; /* 允許垂直調整大小 */
+}

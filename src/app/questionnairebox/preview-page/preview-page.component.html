@@ -1,0 +1,72 @@
+<div class="backcolor">
+  <div class="divCss">
+    <h5 class="section">問卷時間： {{ questData.sDate }} ~ {{ questData.eDate }}</h5>
+    <h2 style="text-align: center;">{{ questData?.title }}</h2>
+
+    <div style="margin: 5% 0px;">
+      <span>{{ questData?.explain }}</span>
+    </div>
+
+    <!-- 使用者資訊區塊 -->
+    <div>
+      <span style="color: red;">*</span>
+      <label>名稱：</label>
+      <span>{{ questData?.userName || '未填寫' }}</span>
+    </div>
+    <br>
+
+    <!-- 其他使用者資訊欄位... -->
+
+    <!-- 問題列表 -->
+    <ol>
+      @for (quest of questData?.questArray; track $index) {
+        <li>
+          <h5>
+            {{ quest.questName }}
+            @if (quest.need) {
+              <span style="color: red;">*</span>
+            }
+          </h5>
+
+          <!-- 根據題型顯示不同內容 -->
+          @switch (quest.type) {
+            @case ('M') {
+              <ol>
+                @for (option of quest.options; track $index) {
+                  @if (option.boxBoolean) {
+                    <li>{{ option.optionName }}</li>
+                  }
+                }
+              </ol>
+            }
+            @case ('Q') {
+              @if (quest.radioAnswer) {
+                <span>{{ getSelectedOption(quest) }}</span>
+              } @else {
+                <span>無</span>
+              }
+            }
+            @case ('T') {
+              <p>{{ quest.answer || '未填寫' }}</p>
+            }
+          }
+        </li>
+      }
+    </ol>
+  </div>
+
+  <!-- 操作按鈕 -->
+  <div class="action-buttons">
+    <button mat-stroked-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>返回修改
+    </button>
+
+    <button mat-flat-button color="primary"
+            (click)="publishQuiz()"
+            [disabled]="isSaving || !questData">
+      <mat-icon *ngIf="!isSaving">save</mat-icon>
+      <mat-spinner *ngIf="isSaving" diameter="20"></mat-spinner>
+      {{ isSaving ? '發布中...' : '儲存並發布' }}
+    </button>
+  </div>
+</div>

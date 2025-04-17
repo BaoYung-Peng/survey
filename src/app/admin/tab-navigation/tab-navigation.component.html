@@ -1,0 +1,23 @@
+<div class="backcolor">
+  <p>tab-navigation works!</p>
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel" style="margin-top: 5%;">
+    @for (link of links; track link) {
+      <a mat-tab-link
+        [routerLink]="isTabDisabled(link) ? null : (link.requiresId && currentQuizId) ? [link.path, currentQuizId] : link.path"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
+        [disabled]="isTabDisabled(link)"
+        [ngClass]="{'tabsCss': rla.isActive}"
+        (click)="onTabClick(link, $event)">
+        {{link.name}}
+        @if (isTabDisabled(link)) {
+          <span class="lock-icon">🔒</span>
+        }
+      </a>
+    }
+  </nav>
+  <mat-tab-nav-panel #tabPanel>
+    <router-outlet></router-outlet>
+  </mat-tab-nav-panel>
+</div>

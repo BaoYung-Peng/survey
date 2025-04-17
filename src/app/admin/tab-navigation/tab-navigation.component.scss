@@ -1,0 +1,81 @@
+.backcolor {
+  background: linear-gradient(135deg, #7e7eb9 0%, #263656 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  /* 提高背景亮度增強對比度 */
+}
+
+/* 文字清晰度解決方案 */
+::ng-deep {
+  .mat-mdc-tab-link .mdc-tab__text-label {
+    /* 文字基礎樣式 */
+    color: #e0f7ff !important; /* 明亮的青白色 */
+    font-size: large;
+    font-weight: 700; /* 適度加粗 */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3); /* 深色陰影增加對比 */
+    letter-spacing: 0.5px; /* 字距微調 */
+  }
+
+  /* 非活動狀態增強可讀性 */
+  .mat-mdc-tab-link:not(.tabsCss) {
+    color: #b0e0ff !important; /* 更亮的藍白色 */
+    background-color: rgba(62, 73, 95, 0.8) !important;
+  }
+
+  /* 活動狀態高對比設計 */
+  .tabsCss {
+    color: #ffffff !important; /* 純白文字 */
+    background: linear-gradient(
+      145deg,
+      rgba(0, 120, 215, 0.9),
+      rgba(0, 150, 255, 0.8)
+    ) !important;
+    text-shadow: 0 0 5px rgba(0, 180, 255, 0.7);
+    font-weight: 600;
+  }
+
+  /* 禁用狀態保持可讀 */
+  .mat-mdc-tab-link[disabled] {
+    color: #8098b0 !important;
+    background-color: rgba(40, 50, 70, 0.5) !important;
+  }
+}
+
+/* 增強對比的陰影系統 */
+::ng-deep .mat-mdc-tab-nav-bar {
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1); /* 頂部細光邊 */
+}
+
+/* 內容區域文字保障 */
+mat-tab-nav-panel {
+  color: #e0e0e0;
+  line-height: 1.6;
+
+  /* 深色背景上的文字增強 */
+  h1, h2, h3, h4 {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    color: #d0d0d0;
+  }
+}
+
+/* 動態聚焦效果 */
+::ng-deep .mat-mdc-tab-link:focus-visible {
+  outline: 2px solid rgba(0, 180, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* 響應式文字調整 */
+@media (max-width: 768px) {
+  ::ng-deep .mat-mdc-tab-link {
+    font-size: 1.8rem;
+    padding: 8px 12px;
+  }
+}
